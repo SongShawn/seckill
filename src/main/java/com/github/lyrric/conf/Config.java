@@ -16,7 +16,7 @@ public class Config {
             "Host: miaomiao.scmttec.com\n" +
             "Connection: keep-alive\n" +
             "Accept: application/json, text/plain, */*\n" +
-            "Cookie: _xxhm_=%7B%22heade" +
+            "Cookie: _xxhm_=%7B%22\n" +
             "User-Agent: Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/53.0.2785.143 Safari/537.36 MicroMessenger/7.0.9.501 NetType/WIFI MiniProgramEnv/Windows WindowsWechat\n" +
             "X-Requested-With: XMLHttpRequest\n" +
             "content-type: application/json\n" +

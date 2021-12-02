@@ -77,7 +77,7 @@ public class ConfigDialog extends JDialog {
                 cookie.setText(data[1]);
             }
         });
-        this.add(parse);
+//        this.add(parse);
 
         this.add(reqHeader);
         this.add(submit);

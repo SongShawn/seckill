@@ -52,7 +52,7 @@ public class MainFrame extends JFrame {
 
     public MainFrame() {
         setLayout(null);
-        setTitle("Just For Fun");
+        setTitle("帮七姐抢抢HPV");
         setBounds(500 , 500, 680, 340);
         init();
         setLocationRelativeTo(null);
@@ -160,7 +160,7 @@ public class MainFrame extends JFrame {
         add(refreshBtn);
         add(provinceBox);
         add(cityBox);
-        add(setAreaBtn);
+//        add(setAreaBtn);
     }
 
 

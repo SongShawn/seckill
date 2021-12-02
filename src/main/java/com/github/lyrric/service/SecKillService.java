@@ -43,15 +43,19 @@ public class SecKillService {
     public void startSecKill(Integer vaccineId, String startDateStr, MainFrame mainFrame) throws ParseException, InterruptedException {
         long startDate = convertDateToInt(startDateStr);
 
+        mainFrame.appendMsg("准备开始抢...");
+
         long now = System.currentTimeMillis();
         if(now + 5000 < startDate){
             logger.info("还未到获取st时间，等待中......");
+            mainFrame.appendMsg("还未到获取st时间，等待中......");
             Thread.sleep(startDate - now - 5000);
         }
         while (true){
             //提前五秒钟获取服务器时间戳接口，计算加密用
             try {
                 logger.info("Thread ID：main，请求获取加密参数st");
+                mainFrame.appendMsg("Thread ID：main，请求获取加密参数st");
                 Config.st = httpService.getSt(vaccineId.toString());
                 logger.info("Thread ID：main，成功获取加密参数st：{}", Config.st);
                 break;
@@ -66,15 +70,16 @@ public class SecKillService {
         now = System.currentTimeMillis();
         if(now + 500 < startDate){
             logger.info("获取st参数成功，还未到秒杀开始时间，等待中......");
+            mainFrame.appendMsg("获取st参数成功，还未到秒杀开始时间，等待中......");
             Thread.sleep(startDate - now - 500);
         }
 
         service.submit(new SecKillRunnable(false, httpService, vaccineId, startDate));
-        Thread.sleep(200);
+        Thread.sleep(100);
         service.submit(new SecKillRunnable(true, httpService, vaccineId, startDate));
-        Thread.sleep(200);
+        Thread.sleep(100);
         service.submit(new SecKillRunnable(true, httpService, vaccineId, startDate));
-        Thread.sleep(200);
+        Thread.sleep(100);
         service.submit(new SecKillRunnable(false, httpService, vaccineId, startDate));
         service.shutdown();
         //等待线程结束
